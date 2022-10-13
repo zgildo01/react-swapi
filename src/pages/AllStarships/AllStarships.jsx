@@ -18,17 +18,24 @@ useEffect(() => {
   return (
     <>
       <h1>All Starships</h1>
+      {starships.length ? 
+      <>
         {starships.map(starship =>
-        <Link
-          key={starship.model}
-          to='/starship'
-          state={{starship}}
-        >
-          <div className='class-div'>
-            {starship.name}
-          </div>
-        </Link>
+          <Link
+            key={starship.model}
+            to='/starship'
+            state={{starship}}
+          >
+            <div className='class-div'>
+              {starship.name}
+            </div>
+          </Link>
         )}
+      </> 
+      : 
+      <>
+        <h4>Loading all starships...</h4>
+      </>}
     </>
   );
 }
