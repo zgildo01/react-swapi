@@ -4,11 +4,30 @@ import { Link } from "react-router-dom";
 
 
 const AllStarships = () => {
-const [starship, setStarship] = useState({})
+const [starships, setStarships] = useState([])
+useEffect(() => {
+  const fetchStarshipList = async () => {
+    const starshipData = await getStarships();
+    setStarships(starshipData.results)
+  }
+  fetchStarshipList()
+}, [])
+
 
   return (
     <>
       <h1>All Starships</h1>
+        {starships.map(starship =>
+        <Link
+          key={starship.model}
+          to='/starships'
+          state={{ starship }}
+        >
+          <div className='class-div'>
+            {starship.name}
+          </div>
+        </Link>
+        )}
     </>
   );
 }
