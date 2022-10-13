@@ -17,20 +17,22 @@ useEffect(() => {
 
   return (
     <>
-      <h1>All Starships</h1>
+      <h1 className="starships-banner">All Starships</h1>
       {starships.length ? 
       <>
-        {starships.map(starship =>
-          <Link
-            key={starship.model}
-            to='/starship'
-            state={{starship}}
-          >
-            <div className='class-div'>
-              {starship.name}
-            </div>
-          </Link>
-        )}
+        <div className="starship-div">
+          {starships.map(starship =>
+            <Link
+              key={starship.model}
+              to='/starship'
+              state={{starship}}
+            >
+              <div className='starship-name-div'>
+                {starship.name}
+              </div>
+            </Link>
+          )}
+        </div>
       </> 
       : 
       <>
