@@ -19,21 +19,22 @@ useEffect(() => {
     <>
       <div>
         <h2>Starship Details</h2>
-        {starshipDetails.name ?
-          <>
-          <div>
-            <h3>name: {starshipDetails.name}</h3>
-            <h3>model: {starshipDetails.model}</h3>
-            <Link
-              to='/all-starships'
-            >
-              Return
-            </Link>
-          </div>
-          </>
-          :
-          <p>Loading... </p>
-        }
+          {starshipDetails.name ?
+            <>
+              <div className="starship-details-div">
+                <h4 className="starship-name">NAME: {starshipDetails.name}</h4>
+                <h4 className="starship-model">MODEL: {starshipDetails.model}</h4>
+                <Link
+                  to='/all-starships'
+                  className="return"
+                >
+                RETURN
+                </Link>
+              </div>
+            </>
+            :
+            <p>Loading... </p>
+          }
       </div>
     </>
   );
